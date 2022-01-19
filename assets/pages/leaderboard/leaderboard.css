@@ -1,0 +1,31 @@
+body {
+    color: white;
+}
+
+#highScoresList {
+    list-style: none;
+    margin-bottom: 4rem;
+}
+
+.high-score {
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.btn {
+    background: #042d6b;
+    color: white;
+    padding: 15px 40px;
+    font-size: 1.25rem;
+    border-radius: 10px;
+    cursor: pointer;
+    align-items: center;
+    margin: .25rem;
+}
+
+.btn:hover {
+    cursor: pointer;
+    box-shadow: 0 0.4rem 1.4rem 0 rgb(2, 2, 255);
+    transform: scale(1.02);
+    transform: transform 100ms;
+}
