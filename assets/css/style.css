@@ -26,6 +26,8 @@ h1 {
     font-size: 50px;
     font-weight: bold;
     text-align: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 h2 {
@@ -71,17 +73,18 @@ button {
 }
 
 button:hover {
-    background-color: #082044;
+    cursor: pointer;
+    box-shadow: 0 0.4rem 1.4rem 0 rgb(2, 2, 255);
+    transform: scale(1.02);
+    transform: transform 100ms;
 }
 
 a:link {
     text-decoration: none;
-    color: white;
     font-size: 26px;
+    color: white;
 }
 
 button:active {
-    background-color: #082044;
-    box-shadow: 0 5px #666;
     transform: translateY(4px);
 }
