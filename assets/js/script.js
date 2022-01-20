@@ -7,30 +7,25 @@ const progressBarFull = document.querySelector('#progressBarFull');
 
 
 // -------------- COUNTDOWN CLOCK ------------------- //
-document.addEventListener('DOMContentLoaded', () => {
-    const timeLeftDisplay = document.querySelector('#time-left')
-    const startBtn = document.querySelector('#start-button')
-    let timeLeft = 10
-
-    function countDown(){
-        setInterval(function(){
-            if(timeLeft <= 0 ) {
-                clearInterval(timeLeft = 0)
-            }
-
-            timeLeftDisplay.innerHTML = timeLeft
-            timeLeft -=1
-        }, 1000)
-    }
-
-    startBtn.addEventListener('click', countDown)
-})
-
-let currentQuestion = {}
-let acceptingAnswers = true
-let score = 0
-let questionCounter = 0
-let availableQuestions = []
+document.addEventListener("DOMContentLoaded", () => {
+    const timeLeftDisplay = document.querySelector("#time-left");
+  
+    setInterval(function () {
+      if (timeLeft <= 0) {
+        return window.location.assign("../pages/end.html");
+      }
+  
+      timeLeftDisplay.innerHTML = timeLeft;
+      timeLeft -= 1;
+    }, 1000);
+});
+  
+  let currentQuestion = {};
+  let acceptingAnswers = true;
+  let score = 0;
+  let timeLeft = 30;
+  let questionCounter = 0;
+  let availableQuestions = [];
 
 // ------------------- QUESTIONS -------------------- //
 
@@ -74,27 +69,26 @@ let questions = [
         choice3: 'Craters',
         choice4: 'Mountains',
         answer: 3,
-    }
-]
+    },
+];
 
-
-const SCORE_POINTS = 20
-const MAX_QUESTIONS = 5
+const SCORE_POINTS = 20;
+const MAX_QUESTIONS = 5;
 
 // --------------- START GAME FUNCTION ------------------- //
 startGame = () => {
     questionCounter = 0
     score = 0
     availableQuestions = [...questions]
-    getNewQuestion()
-}
+    getNewQuestion();
+};
 
 // --------------- CYCLE TO NEXT QUESTION AFTER ANSWER ------------- //
 getNewQuestion = () => {
     if(availableQuestions.length === 0 || questionCounter > MAX_QUESTIONS) {
         localStorage.setItem('mostRecentScore', score)
 
-        return window.location.assign('../pages/end.html')
+        return window.location.assign('../pages/end.html');
     }
 
     questionCounter++
@@ -108,45 +102,45 @@ getNewQuestion = () => {
     choices.forEach(choice => {
         const number = choice.dataset['number']
         choice.innerText = currentQuestion['choice' + number]
-    })
+    });
 
-    availableQuestions.splice(questionsIndex, 1)
+    availableQuestions.splice(questionsIndex, 1);
 
-    acceptingAnswers = true
-}
+    acceptingAnswers = true;
+};
 
 choices.forEach(choice => {
     choice.addEventListener('click', e => {
-        if(!acceptingAnswers) return
+        if(!acceptingAnswers) return;
 
-        acceptingAnswers = false
-        const selectedChoice = e.target
-        const selectedAnswer = selectedChoice.dataset['number']
+        acceptingAnswers = false;
+        const selectedChoice = e.target;
+        const selectedAnswer = selectedChoice.dataset['number'];
 
-        let classToApply = selectedAnswer == currentQuestion.answer ? 'correct' : 'incorrect'
+        let classToApply = selectedAnswer == currentQuestion.answer ? 'correct' : 'incorrect';
 
-        if(classToApply === 'correct') {
-            incrementScore(SCORE_POINTS)
+        if(classToApply === 'correct'){
+            incrementScore(SCORE_POINTS);
+        } else {
+            timeLeft-=10;
         }
-
-        selectedChoice.parentElement.classList.add(classToApply)
+        
+        selectedChoice.parentElement.classList.add(classToApply);
 
         setTimeout(() => {
-            selectedChoice.parentElement.classList.remove(classToApply)
-            getNewQuestion()
+            selectedChoice.parentElement.classList.remove(classToApply);
+            getNewQuestion();
+        }, 1000);
+    });
+});
 
-        }, 1000)
-    })
-})
 // ------------ INCREASE SCORE AFTER EACH CORRECT ANSWER ------------ //
 incrementScore = num => {
-    score +=num
-    scoreText.innerText = score
-}
+    score +=num;
+    scoreText.innerText = score;
+};
 
-startGame()
-
-
+startGame();
 
 // ------------ PSEUDO CODE -------------- //
 // 1. Build a quiz that starts when you click PLAY button
