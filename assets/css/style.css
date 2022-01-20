@@ -61,31 +61,27 @@ h2 {
     display: none;
 }
 
-button {
+.btn {
     background: #042d6b;
     color: white;
     padding: 15px 40px;
-    font-size: 1.25rem;
+    font-size: 1.4rem;
     border-radius: 10px;
     cursor: pointer;
     align-items: center;
     margin: .25rem;
+    border: none;
+    text-decoration: none;
 }
 
-button:hover {
+.btn:hover {
     cursor: pointer;
     box-shadow: 0 0.4rem 1.4rem 0 rgb(2, 2, 255);
     transform: scale(1.02);
     transform: transform 100ms;
 }
 
-a:link {
-    text-decoration: none;
-    font-size: 26px;
-    color: white;
-}
-
-button:active {
+.btn:active {
     transform: translateY(4px);
 }
 
@@ -114,23 +110,24 @@ input {
 }
 
 input::placeholder {
-    color: white;
+    color: #5072a5;
+    background-color: rgb(232, 240, 254);
+    padding: 24px;
 }
 
 #username {
     margin-bottom: 3rem;
     width: 100%;
     outline: none;
+    color: #042d6b;
+    background-color: rgb(232, 240, 254);
+    padding: 24px;
 }
 
 #end-text {
     font-size: 2.4rem;
-    color: white;
+    color: #082044;
     text-align: center;
-}
-
-#saveScoreBtn {
-    border: none;
 }
 
 .fa-home {

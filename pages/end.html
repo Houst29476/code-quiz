@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Over</title>
-    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap" rel="stylesheet"> 
@@ -13,16 +13,16 @@
 <body>
   <div class="container">
     <div id="end" class="flex-center flex-column">
-        <h1 id="finalScore">0</h1>
+        <h1 id="finalScore">Your Final Score:</h1>
         <form class="end-form-container">
           <h2 id="end-text">Enter your name below to save your score!</h2>
-          <input type="text" name="name" id="username" placeholder="Enter your name">
-        <button class="btn" id="saveScoreBtn" type="submit" onclick="saveHighScore(event)" disabled>Save</button>
+          <input type="text" name="name" id="username" placeholder="Enter your name:"></input>
         </form>
-        <a href="../quiz/quiz.html" class="btn"> Play Again</a>
-        <a href="../../../index.html" class="btn"> Go Home</a>
+        <a class="btn" id="saveScoreBtn" type="submit" onclick="saveHighScore(event)" disabled>Save</a>
+        <a href="../pages/quiz.html" class="btn">Play Again</a>
+        <a href="../index.html" class="btn">Go Home</a>
     </div>
   </div>
-  <script src="../end/end.js"></script>
+  <script src="../assets/js/end.js"></script>
 </body>
 </html>

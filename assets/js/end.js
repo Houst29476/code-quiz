@@ -1,9 +1,10 @@
+// ------------ DISPLAY QUIZ TOTAL FINAL SCORE ------------- //
 const username = document.querySelector('#username')
 const saveScoreBtn = document.querySelector('#saveScoreBtn')
 const finalScore = document.querySelector('#finalScore')
 const mostRecentScore = localStorage.getItem('mostRecentScore')
 
-const highScores = JSON.parse(localStorage.getItem('highScores')) || []
+const leaderboard = JSON.parse(localStorage.getItem('leaderboard')) || []
 
 const MAX_HIGH_SCORES = 5
 
@@ -13,6 +14,8 @@ username.addEventListener('keyup', () => {
     saveScoreBtn.disabled = !username.value
 })
 
+
+// ------------ SAVE HIGH SCORE ------------- //
 saveHighScore = e => {
     e.preventDefault()
 
@@ -21,15 +24,14 @@ saveHighScore = e => {
         name: username.value
     }
 
-    highScores.push(score)
+    leaderboard.push(score)
 
-    highScores.sort((a,b) => {
+    leaderboard.sort((a,b) => {
         return b.score - a.score
     })
 
-    highScores.splice(5)
+    leaderboard.splice(5)
 
-    localStorage.setItem('highScores', JSON.stringify(highScores))
+    localStorage.setItem('leaderboard', JSON.stringify(leaderboard))
     window.location.assign('')
-
 }

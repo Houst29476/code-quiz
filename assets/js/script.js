@@ -1,9 +1,12 @@
+// ---------------- QUIZ START --------------------//
 const question = document.querySelector('#question');
 const choices = Array.from(document.querySelectorAll('.choice-text'));
 const progressText = document.querySelector('#progressText');
 const scoreText = document.querySelector('#score');
 const progressBarFull = document.querySelector('#progressBarFull');
 
+
+// -------------- COUNTDOWN CLOCK ------------------- //
 document.addEventListener('DOMContentLoaded', () => {
     const timeLeftDisplay = document.querySelector('#time-left')
     const startBtn = document.querySelector('#start-button')
@@ -28,6 +31,8 @@ let acceptingAnswers = true
 let score = 0
 let questionCounter = 0
 let availableQuestions = []
+
+// ------------------- QUESTIONS -------------------- //
 
 let questions = [
     {
@@ -73,10 +78,10 @@ let questions = [
 ]
 
 
-const SCORE_POINTS = 100
+const SCORE_POINTS = 10
 const MAX_QUESTIONS = 5
 
-
+// --------------- START GAME FUNCTION ------------------- //
 startGame = () => {
     questionCounter = 0
     score = 0
@@ -84,11 +89,12 @@ startGame = () => {
     getNewQuestion()
 }
 
+// --------------- CYCLE TO NEXT QUESTION AFTER ANSWER ------------- //
 getNewQuestion = () => {
     if(availableQuestions.length === 0 || questionCounter > MAX_QUESTIONS) {
         localStorage.setItem('mostRecentScore', score)
 
-        return window.location.assign('end.html')
+        return window.location.assign('../pages/end.html')
     }
 
     questionCounter++
@@ -132,10 +138,15 @@ choices.forEach(choice => {
         }, 1000)
     })
 })
-
+// ------------ INCREASE SCORE AFTER EACH CORRECT ANSWER ------------ //
 incrementScore = num => {
     score +=num
     scoreText.innerText = score
 }
 
 startGame()
+
+
+
+// ------------ PSEUDO CODE -------------- //
+// 1. Build a quiz that starts when you click PLAY button
