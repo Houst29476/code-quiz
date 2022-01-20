@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
     setInterval(function () {
       if (timeLeft <= 0) {
-        return window.location.assign("../pages/end.html");
+        return getNewQuestion();
       }
   
       timeLeftDisplay.innerHTML = timeLeft;
