@@ -78,7 +78,7 @@ let questions = [
 ]
 
 
-const SCORE_POINTS = 10
+const SCORE_POINTS = 20
 const MAX_QUESTIONS = 5
 
 // --------------- START GAME FUNCTION ------------------- //

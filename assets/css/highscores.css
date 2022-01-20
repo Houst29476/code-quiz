@@ -2,7 +2,7 @@ body {
     color: white;
 }
 
-#highScoresList {
+#leaderboardList {
     list-style: none;
     margin-bottom: 4rem;
 }
@@ -10,6 +10,7 @@ body {
 .high-score {
     font-size: 2.8rem;
     margin-bottom: 0.5rem;
+    color: #042d6b;
 }
 
 .btn {
