@@ -1,5 +1,10 @@
 # code-quiz
 
+Application live URL: https://houst29476.github.io/code-quiz/
+
+GitHub Repository URL: https://github.com/Houst29476/code-quiz
+
+
 Create a timed quiz using JavaScript that stores high scores and gauge progress compared to peers:
 
 	Functionality Requirements:
