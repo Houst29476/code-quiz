@@ -143,4 +143,23 @@ incrementScore = num => {
 startGame();
 
 // ------------ PSEUDO CODE -------------- //
-// 1. Build a quiz that starts when you click PLAY button
+
+// 1. Build  a home screen with a start button and view high scores button (optional)
+// 2. Create an event listener for the start button
+    // 2.1 onCick of the start button, 2 things happen
+        // 1. The timer starts and be displayeed
+        // 2. The first question is displayed with the answer choices
+// 3. Create an event listener for the answer choices
+     //3.1 onClick of an answer choice
+            // 1. indicate somehow that the answer is right or wrong
+            // 2. THEN go to the next question
+    // 3.2 If we are creating these elements with the DOM in javascript, create a reusable function for creating the elements for the question and answers. 
+    // 3.3. We'll probably need a variable/array/object to store questions and correct answer.
+// 4. If the timer hits 0 OR the user gets through all the questions, we want to go to the highscore page
+    // 4.1 An input field where the user can type in their high score
+    // 4.2 Store the high score in Local Storage (HINT: JSON.stringify())
+    // 4.3 Retrieve the high scores from local storage for that user
+    //4.4 Display the user's high scores
+// 5. Subtract time from the timer if the answer is wrong 
+    // 5.1 Timer should be displayed while the questions/answers change
+    // 5.2 how to create a countdown in javascript - what will we need
